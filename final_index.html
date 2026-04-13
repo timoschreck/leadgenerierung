@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomePlus Energie – Photovoltaik &amp; Wärmepumpen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2dd46427b.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+        --primary: #2E0072;
+        --secondary: #00B44B;
+        --accent: #1780F5;
+        --bg-light: #F4F2FD;
+        --text-dark: #1A1A2E;
+        --text-light: #ffffff;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+    header {
+        background-color: var(--primary);
+        color: var(--text-light);
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    header .logo {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+    }
+    header .logo img {
+        height: 60px;
+    }
+    header nav a {
+        color: var(--text-light);
+        text-decoration: none;
+        margin-right: 20px;
+        font-weight: 600;
+    }
+    header nav a:hover {
+        color: var(--secondary);
+    }
+    .hero {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: var(--text-light);
+        text-align: center;
+        padding: 80px 20px;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .btn-primary {
+        background-color: var(--secondary);
+        color: var(--text-light);
+        padding: 12px 32px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+        font-weight: 600;
+    }
+    .btn-primary:hover {
+        background-color: #00a13d;
+    }
+    .features, .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        padding: 30px;
+        text-align: center;
+    }
+    .card i {
+        font-size: 2.5rem;
+        color: var(--secondary);
+        margin-bottom: 15px;
+    }
+    .card h3 {
+        margin-bottom: 10px;
+        color: var(--primary);
+        font-size: 1.3rem;
+    }
+    .card p {
+        font-size: 0.95rem;
+        color: var(--text-dark);
+    }
+    .contact-section {
+        background-color: var(--primary);
+        color: var(--text-light);
+        padding: 60px 20px;
+    }
+    .contact-section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        color: var(--secondary);
+    }
+    form {
+        max-width: 900px;
+        margin: 0 auto;
+        display: block;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+    form input, form select, form textarea {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+    }
+    form textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+    form button {
+        background-color: var(--secondary);
+        color: var(--text-light);
+        padding: 15px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-weight: 600;
+        width: 100%;
+    }
+    form button:hover {
+        background-color: #00a13d;
+    }
+    h3 {
+        margin-top: 40px;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        color: var(--secondary);
+    }
+    footer {
+        background-color: var(--primary);
+        color: var(--text-light);
+        padding: 20px;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+    footer a {
+        color: var(--secondary);
+        text-decoration: none;
+    }
+    footer a:hover {
+        text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://homeplus.de/wp-content/uploads/2025/07/Logo_homeplus_padded.png" alt="HomePlus Logo">
+    </div>
+    <nav>
+      <a href="#vorteile">Vorteile</a>
+      <a href="#angebot">Angebot</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Ihre Energiezukunft: Photovoltaik &amp; Wärmepumpen</h1>
+    <p>Setzen Sie auf nachhaltige Energieversorgung mit HomePlus und profitieren Sie von niedrigen Kosten, Unabhängigkeit und umfassenden Förderungen.</p>
+    <a href="#kontakt" class="btn-primary">Jetzt kostenlose Beratung anfordern</a>
+  </section>
+
+  <section class="features" id="vorteile">
+    <div class="card">
+      <i class="fas fa-coins"></i>
+      <h3>Kostenersparnis</h3>
+      <p>Senken Sie Ihre Strom- und Heizkosten dauerhaft durch hocheffiziente Photovoltaik &amp; Wärmepumpen.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-plug"></i>
+      <h3>Unabhängigkeit</h3>
+      <p>Werden Sie unabhängig von Energieversorgern – produzieren und nutzen Sie Ihren eigenen Strom.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-leaf"></i>
+      <h3>Nachhaltigkeit</h3>
+      <p>Schützen Sie das Klima mit erneuerbaren Energien und steigern Sie den Wert Ihrer Immobilie.</p>
+    </div>
+  </section>
+
+  <section class="services" id="angebot">
+    <div class="card">
+      <i class="fas fa-hands-helping"></i>
+      <h3>Ganzheitliche Beratung</h3>
+      <p>Individuelle Beratung und Planung – von der ersten Idee bis zur Inbetriebnahme Ihres Systems.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-piggy-bank"></i>
+      <h3>Förderungen &amp; Finanzierung</h3>
+      <p>Wir zeigen Ihnen alle Förderprogramme und Finanzierungsmöglichkeiten für Ihr Projekt.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-users"></i>
+      <h3>B2C &amp; B2B</h3>
+      <p>Ob Eigenheim oder Großprojekt – unsere Lösungen passen für Privatkunden und Installationsbetriebe.</p>
+    </div>
+  </section>
+
+  <section class="contact-section" id="kontakt">
+    <h2>Jetzt Angebot anfordern</h2>
+    <form id="leadForm" action="#" method="POST" onsubmit="return submitForm(event)">
+      <!-- disable FormSubmit reCAPTCHA and set a subject for the email -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Neue Anfrage von PV/WP Landingpage">
+      <div class="form-group">
+        <label for="interestType">Ich interessiere mich für</label>
+        <select id="interestType" name="Interest" required>
+          <option value="" disabled selected>Bitte auswählen</option>
+          <option value="pv">Photovoltaik</option>
+          <option value="wp">Wärmepumpe</option>
+          <option value="both">PV &amp; Wärmepumpe</option>
+        </select>
+      </div>
+      <!-- PV spezifische Felder -->
+      <div id="pvSection" class="conditional-section" style="display:none;">
+        <div class="form-group">
+          <label for="pvBuildingType">PV: Gebäudetyp</label>
+          <select id="pvBuildingType" name="PV Gebäudetyp">
+            <option value="" disabled selected>EFH oder MFH wählen</option>
+            <option value="efh">Einfamilienhaus (EFH)</option>
+            <option value="mfh">Mehrfamilienhaus (MFH)</option>
+          </select>
+        </div>
+        <div id="pvEFHFields" class="conditional-section" style="display:none;">
+          <div class="form-group">
+            <input type="text" name="PV_EFH_Strombedarf" placeholder="Strombedarf aktuell (kWh/Jahr)">
+          </div>
+          <div class="form-group">
+            <label>Klimaanlage geplant?</label>
+            <select name="PV_EFH_Klimaanlage">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>E‑Auto geplant?</label>
+            <select name="PV_EFH_EAuto">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Interesse an Wallbox?</label>
+            <select name="PV_EFH_Wallbox">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+        </div>
+        <div id="pvMFHFields" class="conditional-section" style="display:none;">
+          <div class="form-group">
+            <input type="number" name="PV_MFH_Wohneinheiten" placeholder="Anzahl Wohneinheiten">
+          </div>
+          <div class="form-group">
+            <input type="text" name="PV_MFH_Strombedarf" placeholder="Strombedarf aktuell (kWh/Jahr)">
+          </div>
+          <div class="form-group">
+            <label>Mieterstrommodell gewünscht?</label>
+            <select name="PV_MFH_Mieterstrom">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>E‑Autos geplant?</label>
+            <select name="PV_MFH_EAuto">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Interesse an Wallbox?</label>
+            <select name="PV_MFH_Wallbox">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Wärmepumpen spezifische Felder -->
+      <div id="wpSection" class="conditional-section" style="display:none;">
+        <div class="form-group">
+          <label for="wpBuildingType">Wärmepumpe: Gebäudetyp</label>
+          <select id="wpBuildingType" name="WP Gebäudetyp">
+            <option value="" disabled selected>EFH oder MFH wählen</option>
+            <option value="efh">Einfamilienhaus (EFH)</option>
+            <option value="mfh">Mehrfamilienhaus (MFH)</option>
+          </select>
+        </div>
+        <div id="wpFields" class="conditional-section">
+          <div class="form-group">
+            <input type="text" name="WP_Baujahr" placeholder="Baujahr">
+          </div>
+          <div class="form-group">
+            <label>Renovierungsstand (Fenster, Dämmung, Dach?)</label>
+            <input type="text" name="WP_Renovierungsstand" placeholder="z.B. neue Fenster, Dach">
+          </div>
+          <div class="form-group">
+            <label>Heizungsart aktuell</label>
+            <select name="WP_HeizungAktuell">
+              <option value="oel">Öl</option>
+              <option value="gas">Gas</option>
+              <option value="elektro">Elektro</option>
+              <option value="waermepumpe">Wärmepumpe</option>
+              <option value="holz">Holz</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" name="WP_Energiebedarf" placeholder="Energiebedarf (kW, Liter, kWh)">
+          </div>
+          <div class="form-group">
+            <label>Heizsystem</label>
+            <select name="WP_Heizsystem">
+              <option value="heizkoerper">Heizkörper</option>
+              <option value="fussboden">Fußbodenheizung</option>
+              <option value="sonstiges">Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="number" name="WP_Baeder" placeholder="Anzahl Bäder">
+          </div>
+          <div class="form-group">
+            <label>Badewanne vorhanden?</label>
+            <select name="WP_Badewanne">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Warmwasser</label>
+            <select name="WP_Warmwasser">
+              <option value="durchlauferhitzer">Durchlauferhitzer</option>
+              <option value="zentral">Zentrales System</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Felder für PV + WP gemeinsam -->
+      <div id="bothSection" class="conditional-section" style="display:none;">
+        <div class="form-group">
+          <label>Stromnutzung bei PV+Wärmepumpe</label>
+          <select name="Both_Stromnutzung">
+            <option value="" disabled selected>Bitte auswählen</option>
+            <option value="nur_wp">Nur für Wärmepumpe</option>
+            <option value="eigennutzung">Eigennutzung &amp; Wärmepumpe</option>
+            <option value="mieterstrom">Mieterstrommodell</option>
+          </select>
+        </div>
+      </div>
+      <!-- Persönliche Angaben -->
+      <h3>Persönliche Angaben</h3>
+      <div class="form-group">
+        <input type="text" name="Vorname" placeholder="Vorname" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="Nachname" placeholder="Nachname" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="Strasse" placeholder="Straße und Hausnummer" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="PLZ" placeholder="PLZ" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="Ort" placeholder="Ort" required>
+      </div>
+      <div class="form-group">
+        <label>Erreichbar via</label>
+        <select id="reachType" name="Erreichbarkeit" required>
+          <option value="" disabled selected>Bitte auswählen</option>
+          <option value="mail">E‑Mail</option>
+          <option value="telefon">Telefon</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="telefon_mail_whatsapp">Alle Kanäle</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="email" name="Email" placeholder="E‑Mail-Adresse" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" name="Festnetz" placeholder="Festnetznummer (optional)">
+      </div>
+      <div class="form-group">
+        <input type="tel" name="Handy" placeholder="Handynummer" required>
+      </div>
+      <div class="form-group">
+        <label>Ich bin am besten erreichbar</label>
+        <select name="Beste_Erreichbarkeit">
+          <option value="" disabled selected>Bitte auswählen</option>
+          <option value="morgen">Morgens</option>
+          <option value="nachmittag">Nachmittag</option>
+          <option value="abend">Abend</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Ab Uhrzeit</label>
+        <input type="time" name="Beste_Uhrzeit" required>
+      </div>
+      <div class="form-group">
+        <label><input type="checkbox" name="Datenschutz" required> Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</label>
+      </div>
+      <button type="submit">Anfrage senden</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 HomePlus. Alle Rechte vorbehalten.</p>
+    <p><a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
+  </footer>
+  <script>
+  function hideAllSections() {
+    document.getElementById('pvSection').style.display = 'none';
+    document.getElementById('wpSection').style.display = 'none';
+    document.getElementById('bothSection').style.display = 'none';
+  }
+  function hidePvSubFields() {
+    document.getElementById('pvEFHFields').style.display = 'none';
+    document.getElementById('pvMFHFields').style.display = 'none';
+  }
+  document.getElementById('interestType').addEventListener('change', function() {
+    hideAllSections();
+    hidePvSubFields();
+    var value = this.value;
+    if (value === 'pv') {
+      document.getElementById('pvSection').style.display = 'block';
+    } else if (value === 'wp') {
+      document.getElementById('wpSection').style.display = 'block';
+    } else if (value === 'both') {
+      document.getElementById('pvSection').style.display = 'block';
+      document.getElementById('wpSection').style.display = 'block';
+      document.getElementById('bothSection').style.display = 'block';
+    }
+  });
+  document.getElementById('pvBuildingType').addEventListener('change', function() {
+    hidePvSubFields();
+    var value = this.value;
+    if (value === 'efh') {
+      document.getElementById('pvEFHFields').style.display = 'block';
+    } else if (value === 'mfh') {
+      document.getElementById('pvMFHFields').style.display = 'block';
+    }
+  });
+  // Submit the form via AJAX to FormSubmit and prevent default mail client
+  function submitForm(event) {
+    event.preventDefault();
+    const form = document.getElementById('leadForm');
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+    fetch('https://formsubmit.co/ajax/info@nexovia-marketing.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(() => {
+      alert('Vielen Dank für Ihre Anfrage – wir werden uns umgehend bei Ihnen melden!');
+      form.reset();
+      // hide conditional sections after reset
+      hideAllSections();
+      hidePvSubFields();
+    })
+    .catch(() => {
+      alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.');
+    });
+    return false;
+  }
+  </script>
+</body>
+</html>
