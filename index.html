@@ -240,7 +240,10 @@
 
   <section class="contact-section" id="kontakt">
     <h2>Jetzt Angebot anfordern</h2>
-    <form id="leadForm" action="mailto:info@nexovia-marketing.com" method="POST" enctype="text/plain" onsubmit="return handleSubmit(event)">
+    <form id="leadForm" action="#" method="POST" onsubmit="return submitForm(event)">
+      <!-- disable FormSubmit reCAPTCHA and set a subject for the email -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Neue Anfrage von PV/WP Landingpage">
       <div class="form-group">
         <label for="interestType">Ich interessiere mich für</label>
         <select id="interestType" name="Interest" required>
@@ -479,9 +482,35 @@
       document.getElementById('pvMFHFields').style.display = 'block';
     }
   });
-  function handleSubmit(event) {
-    alert('Vielen Dank für Ihre Anfrage – wir werden uns umgehend bei Ihnen melden!');
-    return true;
+  // Submit the form via AJAX to FormSubmit and prevent default mail client
+  function submitForm(event) {
+    event.preventDefault();
+    const form = document.getElementById('leadForm');
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+    fetch('https://formsubmit.co/ajax/info@nexovia-marketing.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(() => {
+      alert('Vielen Dank für Ihre Anfrage – wir werden uns umgehend bei Ihnen melden!');
+      form.reset();
+      // hide conditional sections after reset
+      hideAllSections();
+      hidePvSubFields();
+    })
+    .catch(() => {
+      alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.');
+    });
+    return false;
   }
   </script>
 </body>
