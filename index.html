@@ -124,28 +124,30 @@
         color: var(--secondary);
     }
     form {
-        max-width: 700px;
+        max-width: 900px;
         margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
+        display: block;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
     }
     form input, form select, form textarea {
+        width: 100%;
         padding: 12px;
         border: none;
         border-radius: 6px;
         font-size: 1rem;
     }
-    form select {
-        appearance: none;
-    }
     form textarea {
-        grid-column: span 2;
         resize: vertical;
-        min-height: 100px;
+        min-height: 80px;
     }
     form button {
-        grid-column: span 2;
         background-color: var(--secondary);
         color: var(--text-light);
         padding: 15px;
@@ -155,9 +157,16 @@
         cursor: pointer;
         transition: background-color 0.3s ease;
         font-weight: 600;
+        width: 100%;
     }
     form button:hover {
         background-color: #00a13d;
+    }
+    h3 {
+        margin-top: 40px;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        color: var(--secondary);
     }
     footer {
         background-color: var(--primary);
@@ -172,14 +181,6 @@
     }
     footer a:hover {
         text-decoration: underline;
-    }
-    @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 2rem;
-        }
-        .hero p {
-            font-size: 1rem;
-        }
     }
   </style>
 </head>
@@ -238,20 +239,206 @@
   </section>
 
   <section class="contact-section" id="kontakt">
-    <h2>Kontaktieren Sie uns</h2>
-    <form>
-      <input type="text" name="name" placeholder="Ihr Name" required>
-      <input type="email" name="email" placeholder="E‑Mail-Adresse" required>
-      <input type="tel" name="phone" placeholder="Telefon" required>
-      <input type="text" name="zipcode" placeholder="Postleitzahl" required>
-      <select name="interest" required>
-        <option value="" disabled selected>Interesse wählen</option>
-        <option value="pv">Photovoltaik</option>
-        <option value="wp">Wärmepumpe</option>
-        <option value="both">Beides</option>
-      </select>
-      <textarea name="message" placeholder="Ihre Nachricht (optional)"></textarea>
-      <button type="submit">Absenden</button>
+    <h2>Jetzt Angebot anfordern</h2>
+    <form id="leadForm" action="mailto:info@nexovia-marketing.com" method="POST" enctype="text/plain" onsubmit="return handleSubmit(event)">
+      <div class="form-group">
+        <label for="interestType">Ich interessiere mich für</label>
+        <select id="interestType" name="Interest" required>
+          <option value="" disabled selected>Bitte auswählen</option>
+          <option value="pv">Photovoltaik</option>
+          <option value="wp">Wärmepumpe</option>
+          <option value="both">PV &amp; Wärmepumpe</option>
+        </select>
+      </div>
+      <!-- PV spezifische Felder -->
+      <div id="pvSection" class="conditional-section" style="display:none;">
+        <div class="form-group">
+          <label for="pvBuildingType">PV: Gebäudetyp</label>
+          <select id="pvBuildingType" name="PV Gebäudetyp">
+            <option value="" disabled selected>EFH oder MFH wählen</option>
+            <option value="efh">Einfamilienhaus (EFH)</option>
+            <option value="mfh">Mehrfamilienhaus (MFH)</option>
+          </select>
+        </div>
+        <div id="pvEFHFields" class="conditional-section" style="display:none;">
+          <div class="form-group">
+            <input type="text" name="PV_EFH_Strombedarf" placeholder="Strombedarf aktuell (kWh/Jahr)">
+          </div>
+          <div class="form-group">
+            <label>Klimaanlage geplant?</label>
+            <select name="PV_EFH_Klimaanlage">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>E‑Auto geplant?</label>
+            <select name="PV_EFH_EAuto">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Interesse an Wallbox?</label>
+            <select name="PV_EFH_Wallbox">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+        </div>
+        <div id="pvMFHFields" class="conditional-section" style="display:none;">
+          <div class="form-group">
+            <input type="number" name="PV_MFH_Wohneinheiten" placeholder="Anzahl Wohneinheiten">
+          </div>
+          <div class="form-group">
+            <input type="text" name="PV_MFH_Strombedarf" placeholder="Strombedarf aktuell (kWh/Jahr)">
+          </div>
+          <div class="form-group">
+            <label>Mieterstrommodell gewünscht?</label>
+            <select name="PV_MFH_Mieterstrom">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>E‑Autos geplant?</label>
+            <select name="PV_MFH_EAuto">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Interesse an Wallbox?</label>
+            <select name="PV_MFH_Wallbox">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Wärmepumpen spezifische Felder -->
+      <div id="wpSection" class="conditional-section" style="display:none;">
+        <div class="form-group">
+          <label for="wpBuildingType">Wärmepumpe: Gebäudetyp</label>
+          <select id="wpBuildingType" name="WP Gebäudetyp">
+            <option value="" disabled selected>EFH oder MFH wählen</option>
+            <option value="efh">Einfamilienhaus (EFH)</option>
+            <option value="mfh">Mehrfamilienhaus (MFH)</option>
+          </select>
+        </div>
+        <div id="wpFields" class="conditional-section">
+          <div class="form-group">
+            <input type="text" name="WP_Baujahr" placeholder="Baujahr">
+          </div>
+          <div class="form-group">
+            <label>Renovierungsstand (Fenster, Dämmung, Dach?)</label>
+            <input type="text" name="WP_Renovierungsstand" placeholder="z.B. neue Fenster, Dach">
+          </div>
+          <div class="form-group">
+            <label>Heizungsart aktuell</label>
+            <select name="WP_HeizungAktuell">
+              <option value="oel">Öl</option>
+              <option value="gas">Gas</option>
+              <option value="elektro">Elektro</option>
+              <option value="waermepumpe">Wärmepumpe</option>
+              <option value="holz">Holz</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" name="WP_Energiebedarf" placeholder="Energiebedarf (kW, Liter, kWh)">
+          </div>
+          <div class="form-group">
+            <label>Heizsystem</label>
+            <select name="WP_Heizsystem">
+              <option value="heizkoerper">Heizkörper</option>
+              <option value="fussboden">Fußbodenheizung</option>
+              <option value="sonstiges">Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="number" name="WP_Baeder" placeholder="Anzahl Bäder">
+          </div>
+          <div class="form-group">
+            <label>Badewanne vorhanden?</label>
+            <select name="WP_Badewanne">
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Warmwasser</label>
+            <select name="WP_Warmwasser">
+              <option value="durchlauferhitzer">Durchlauferhitzer</option>
+              <option value="zentral">Zentrales System</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Felder für PV + WP gemeinsam -->
+      <div id="bothSection" class="conditional-section" style="display:none;">
+        <div class="form-group">
+          <label>Stromnutzung bei PV+Wärmepumpe</label>
+          <select name="Both_Stromnutzung">
+            <option value="" disabled selected>Bitte auswählen</option>
+            <option value="nur_wp">Nur für Wärmepumpe</option>
+            <option value="eigennutzung">Eigennutzung &amp; Wärmepumpe</option>
+            <option value="mieterstrom">Mieterstrommodell</option>
+          </select>
+        </div>
+      </div>
+      <!-- Persönliche Angaben -->
+      <h3>Persönliche Angaben</h3>
+      <div class="form-group">
+        <input type="text" name="Vorname" placeholder="Vorname" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="Nachname" placeholder="Nachname" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="Strasse" placeholder="Straße und Hausnummer" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="PLZ" placeholder="PLZ" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="Ort" placeholder="Ort" required>
+      </div>
+      <div class="form-group">
+        <label>Erreichbar via</label>
+        <select id="reachType" name="Erreichbarkeit" required>
+          <option value="" disabled selected>Bitte auswählen</option>
+          <option value="mail">E‑Mail</option>
+          <option value="telefon">Telefon</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="telefon_mail_whatsapp">Alle Kanäle</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="email" name="Email" placeholder="E‑Mail-Adresse" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" name="Festnetz" placeholder="Festnetznummer (optional)">
+      </div>
+      <div class="form-group">
+        <input type="tel" name="Handy" placeholder="Handynummer" required>
+      </div>
+      <div class="form-group">
+        <label>Ich bin am besten erreichbar</label>
+        <select name="Beste_Erreichbarkeit">
+          <option value="" disabled selected>Bitte auswählen</option>
+          <option value="morgen">Morgens</option>
+          <option value="nachmittag">Nachmittag</option>
+          <option value="abend">Abend</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Ab Uhrzeit</label>
+        <input type="time" name="Beste_Uhrzeit" required>
+      </div>
+      <div class="form-group">
+        <label><input type="checkbox" name="Datenschutz" required> Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</label>
+      </div>
+      <button type="submit">Anfrage senden</button>
     </form>
   </section>
 
@@ -259,5 +446,43 @@
     <p>&copy; 2026 HomePlus. Alle Rechte vorbehalten.</p>
     <p><a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
   </footer>
+  <script>
+  function hideAllSections() {
+    document.getElementById('pvSection').style.display = 'none';
+    document.getElementById('wpSection').style.display = 'none';
+    document.getElementById('bothSection').style.display = 'none';
+  }
+  function hidePvSubFields() {
+    document.getElementById('pvEFHFields').style.display = 'none';
+    document.getElementById('pvMFHFields').style.display = 'none';
+  }
+  document.getElementById('interestType').addEventListener('change', function() {
+    hideAllSections();
+    hidePvSubFields();
+    var value = this.value;
+    if (value === 'pv') {
+      document.getElementById('pvSection').style.display = 'block';
+    } else if (value === 'wp') {
+      document.getElementById('wpSection').style.display = 'block';
+    } else if (value === 'both') {
+      document.getElementById('pvSection').style.display = 'block';
+      document.getElementById('wpSection').style.display = 'block';
+      document.getElementById('bothSection').style.display = 'block';
+    }
+  });
+  document.getElementById('pvBuildingType').addEventListener('change', function() {
+    hidePvSubFields();
+    var value = this.value;
+    if (value === 'efh') {
+      document.getElementById('pvEFHFields').style.display = 'block';
+    } else if (value === 'mfh') {
+      document.getElementById('pvMFHFields').style.display = 'block';
+    }
+  });
+  function handleSubmit(event) {
+    alert('Vielen Dank für Ihre Anfrage – wir werden uns umgehend bei Ihnen melden!');
+    return true;
+  }
+  </script>
 </body>
 </html>
