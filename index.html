@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photovoltaik & Wärmepumpen – Leadgenerierung</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-iDcHdSTMKzghIzlZT9YrWL0oRLxLdRSGjzO2hgBR7O2pJ6nW9FxzeGCG4EUAnlZyE9q6kOGOiOx//Eur+Sytqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary-color: #006d77;
+            --secondary-color: #83c5be;
+            --accent-color: #ffddd2;
+            --text-color: #333;
+            --background-color: #f7f9fc;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background: var(--background-color);
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        header p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            background-color: #ff9e00;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #e38900;
+        }
+        .section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-around;
+        }
+        .feature {
+            flex: 1 1 300px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        .feature h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        .feature p {
+            font-size: 1rem;
+        }
+        form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            max-width: 600px;
+            margin: auto;
+        }
+        form .form-group {
+            margin-bottom: 20px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        form button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        form button:hover {
+            background-color: #005760;
+        }
+        footer {
+            background: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Photovoltaik & Wärmepumpen</h1>
+        <p>Spare Energiekosten, werde unabhängig und schütze das Klima. Bis zu 70 % Förderung sichern!</p>
+        <a href="#kontakt" class="cta-button">Jetzt kostenlose Beratung anfordern</a>
+    </header>
+
+    <section class="section" id="vorteile">
+        <h2>Ihre Vorteile</h2>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-coins"></i>
+                <h3>Kosten sparen</h3>
+                <p>Reduzieren Sie Ihre Strom- und Heizkosten um bis zu 60 % und erhöhen Sie den Wert Ihrer Immobilie.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h3>Unabhängigkeit</h3>
+                <p>Werden Sie unabhängig von Energieversorgern und steigenden Preisen durch eigene Energieproduktion.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-leaf"></i>
+                <h3>Nachhaltigkeit</h3>
+                <p>Leisten Sie einen aktiven Beitrag zum Klimaschutz und nutzen Sie erneuerbare Energien.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <h2>Unser Angebot</h2>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-handshake"></i>
+                <h3>Ganzheitliche Beratung</h3>
+                <p>Von der Planung bis zur Installation – wir begleiten Sie durch den gesamten Prozess und berücksichtigen individuelle Fördermöglichkeiten.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-gift"></i>
+                <h3>Förderungen & Finanzierung</h3>
+                <p>Wir informieren Sie über aktuelle Förderprogramme (BEG, KfW) und helfen Ihnen, bis zu 70 % Zuschüsse zu nutzen.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users"></i>
+                <h3>B2C & B2B</h3>
+                <p>Ob Eigenheimbesitzer oder Installationsbetrieb – wir bieten maßgeschneiderte Lösungen und vermitteln qualifizierte Leads.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="kontakt">
+        <h2>Kontaktformular</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-Mail *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefon (optional)</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="plz">Postleitzahl *</label>
+                <input type="text" id="plz" name="plz" required>
+            </div>
+            <div class="form-group">
+                <label for="interest">Ich interessiere mich für *</label>
+                <select id="interest" name="interest" required>
+                    <option value="">Bitte wählen…</option>
+                    <option value="photovoltaik">Photovoltaik</option>
+                    <option value="waermepumpe">Wärmepumpe</option>
+                    <option value="beides">Beides</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Ihre Nachricht (optional)</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label><input type="checkbox" required> Ich akzeptiendie <a href="#">Datenschutzbestimmungen</a>.</label>
+            </div>
+            <button type="submit">Absenden</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Leadgenerierung – Photovoltaik & Wärmepumpen. Alle Rechte vorbehalten.</p>
+        <p><a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
+        <p>Sie sind Installationsbetrieb oder Wohnungsbaugesellschaft? <a href="#kontakt">Werden Sie Partner</a>.</p>
+    </footer>
+</body>
+</html>
