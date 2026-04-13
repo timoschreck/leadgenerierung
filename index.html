@@ -51,7 +51,10 @@
         color: var(--secondary);
     }
     .hero {
-        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                /* Set a meadow image watermark behind the gradient */
+        background: linear-gradient(135deg, rgba(46, 0, 114, 0.7), rgba(0, 180, 75, 0.7)), url('sommerwiese.jpg');
+        background-size: cover;
+        background-position: center;
         color: var(--text-light);
         text-align: center;
         padding: 80px 20px;
